@@ -1,24 +1,24 @@
 # liste-de-commandes-de-deploiement-webapp-symfony
 
 # A) En local (build + préparation)
+### La premiere chose a faire est de se rendre dans le fichier ".env" et modifier la ligne [ APP_ENV=dev ] en [ APP_ENV=prod ]
 
-### dépendances PHP
+
+### Dépendances PHP
 ```bash 
 
 composer install
 
 ```
 
-### dans .env modifier APP_ENV=dev en APP_ENV=prod
-
-### générer une valeur pour " APP_SECRET "
+### Générer une valeur pour " APP_SECRET "
 ```bash 
 
 php -r "echo bin2hex(random_bytes(32));"
 
 ```
  
-###  installer le package Apache Pack, qui génère automatiquement un fichier .htaccess dans le dossier public/
+###  Installer le package Apache Pack, qui génère automatiquement un fichier .htaccess dans le dossier public/
 ```bash 
 
 composer require symfony/apache-pack
@@ -41,7 +41,7 @@ composer install --no-dev --optimize-autoloader
 
 ```
  
-### migrations des tables
+### Migrations des tables
 ```bash 
 
 php bin/console doctrine:migrations:migrate --env=prod --no-interaction
@@ -55,7 +55,7 @@ php bin/console asset-map:compile --env=prod
 
 ``` 
 
-### cache
+### Gerer le cache
 ```bash
  
 composer dump-autoload --optimize --classmap-authoritative
@@ -64,7 +64,7 @@ php bin/console cache:warmup --env=prod
 
 ``` 
 
-### CREER UN FICHIER htaccess qui redirige vers le rep public/ 
+### LA DERNIERE CHOSE A FAIRE EST DE CREER UN FICHIER ".htaccess" A LA RACINE DU PROJET POUR PERMETTRE DE REDIRIGER VERS LE REPERTOIRE "public/" AINSI LE SERVEUR POURRA LIRE LE FICHIER "index.php"
 ```contenu fichier 
 
 <IfModule mod_rewrite.c>
