@@ -1,8 +1,11 @@
 # liste-de-commandes-de-deploiement-webapp-symfony
 
 # A) En local (build + préparation)
-### La premiere chose a faire est de se rendre dans le fichier ".env" et modifier la ligne [ APP_ENV=dev ] en [ APP_ENV=prod ]
+### creer un fichier .env.local et y inserer les variable(avec leur valeurs) suivants : APP_ENV=prod ; APP_DEBUG=0 ; APP_SECRET=votre_cle_secret_a_generer ; DATABASE_URL=_votre_url
 
+### laisser le fichier ".env" avec son contenu initial a la creation du projet mais exclure(supprimer) les variables qui sont deja presentes dans le fichier ".env.local"
+
+### supprimer la liste des fichier & reertoir suivant : compose.yaml ; compose.override.yaml ; .env.dev ; .env.test ; .env.desktop ; .env.desktop.local ; phpunit.dist.xmll ; tests/ ; var/ ;
 
 ### Dépendances PHP
 ```bash 
