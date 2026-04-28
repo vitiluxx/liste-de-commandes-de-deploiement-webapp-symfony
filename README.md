@@ -7,6 +7,10 @@
 
 ### supprimer la liste des fichier & reertoir suivant : compose.yaml ; compose.override.yaml ; .env.dev ; .env.test ; .env.desktop ; .env.desktop.local ; phpunit.dist.xmll ; tests/ ; var/ ;
 
+### En cas de soucis de migrations : esxemple: s'Il y a des migrations antérieures qui posent problème. Marquons-les comme exécutées et exécutons seulement la nouvelle :
+php bin/console doctrine:migrations:version --add --all --no-interaction
+
+
 ### Dépendances PHP
 ```bash 
 
