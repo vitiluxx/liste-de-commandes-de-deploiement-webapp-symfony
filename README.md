@@ -5,7 +5,9 @@
 
 ### laisser le fichier ".env" avec son contenu initial a la creation du projet mais exclure(supprimer) les variables qui sont deja presentes dans le fichier ".env.local"
 
-### supprimer la liste des fichier & reertoir suivant : compose.yaml ; compose.override.yaml ; .env.dev ; .env.test ; .env.desktop ; .env.desktop.local ; phpunit.dist.xmll ; tests/ ; var/ ;
+### supprimer la liste des fichier & reertoir suivant : 
+
+compose.yaml ; compose.override.yaml ; .env.dev ; .env.test ; .env.desktop.local ; phpunit.dist.xmll ; tests/ ; var/ ; vendor/
 
 ### En cas de soucis de migrations : esxemple: s'Il y a des migrations antérieures qui posent problème. Marquons-les comme exécutées et exécutons seulement la nouvelle :
 php bin/console doctrine:migrations:version --add --all --no-interaction
