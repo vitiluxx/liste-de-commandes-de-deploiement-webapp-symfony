@@ -49,14 +49,35 @@ composer require symfony/apache-pack
 composer install --no-dev --optimize-autoloader
 
 ```
- 
+
+### Créer la base de données
+```bash 
+
+php bin/console doctrine:database:create
+
+```
+
 ### Migrations des tables
 ```bash 
 
 php bin/console doctrine:migrations:migrate --env=prod --no-interaction
 
 ```
- 
+
+# Vérifier que toutes les tables sont créées
+```bash 
+
+php bin/console doctrine:schema:validate
+
+```
+
+# Lister les migrations appliquées
+```bash 
+
+php bin/console doctrine:migrations:status
+
+```
+
 ### Publier/mapper les assets Symfony vers public/ (important en prod)
 ```bash 
 
