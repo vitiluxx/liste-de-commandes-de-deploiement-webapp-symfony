@@ -50,13 +50,6 @@ composer install --no-dev --optimize-autoloader
 
 ```
 
-### Créer la base de données
-```bash 
-
-php bin/console doctrine:database:create
-
-```
-
 ### Migrations des tables
 ```bash 
 
