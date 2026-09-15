@@ -15,37 +15,12 @@ Effectue un audit technique approfondi du code source actuel pour identifier tou
 
 ## ----------------------------------- ------------------------------------------------------
 
-Plan d'implémentation du système de réservation de stock
-Analyse du problème actuel :
-❌ Aucun mécanisme de réservation : MAGASIN peut créer des transferts sans vérifier si le stock est suffisant
-❌ Aucun verrouillage : MAGASIN peut continuer à utiliser le stock réservé
-❌ Risque de stock négatif : Si MAGASIN utilise le stock réservé, il peut se retrouver en stock négatif
-Solution proposée :
-1. Ajouter un champ quantite_reservee dans l'Entity Stock
+Analyse entités & relations
+Analyse services & logique métier
+Analyse controllers & flux
+Analyse templates & formulaires
+Analyse repositories & requêtes
+Analyse  Sécurité & RBAC
+Analyse  Flux complet de logique front-end vs back-end
 
-Ajouter quantite_reservee (DECIMAL) pour stocker les quantités réservées par les transferts en attente
-Stock disponible réel = quantite - quantite_reservee
-2. Modifier la logique de création de transfert (MAGASIN)
-
-Vérifier que quantite - quantite_reservee >= quantite_transfert
-Si OK : incrémenter quantite_reservee du stock MAGASIN
-Si KO : refuser la création du transfert avec message "Stock insuffisant"
-3. Modifier la logique de confirmation (BAR → Serveur)
-
-Côté BAR : Augmenter le stock BAR lors de la confirmation
-Côté Serveur :
-Diminuer quantite_reservee du stock MAGASIN
-Diminuer quantite du stock MAGASIN
-Créer événement transfer_confirmed
-4. Modifier la logique de rejet (BAR → Serveur)
-
-Côté BAR : Aucun changement de stock
-Côté Serveur :
-Libérer quantite_reservee du stock MAGASIN (décrémenter)
-Mettre mouvement à REJECTED
-Créer événement transfer_rejected
-5. Ajouter une interface de gestion des réservations
-
-Page "Réservations en attente" pour MAGASIN
-Possibilité d'annuler un transfert en attente (libère la réservation)
 ## ----------------------------------- ------------------------------------------------------
