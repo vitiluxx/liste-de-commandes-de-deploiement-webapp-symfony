@@ -50,6 +50,11 @@ composer install --no-dev --optimize-autoloader
 
 ```
 
+###  Créer le schéma — INSPECTER D'ABORD, toujours
+``` 
+php bin/console doctrine:schema:update --dump-sql --env=prod   # lire
+``` 
+
 ### Migrations des tables
 ```bash 
 
@@ -78,6 +83,16 @@ php bin/console asset-map:compile --env=prod
 
 ``` 
 
+### Activer l'isolation multi-tenant (RLS) — à ne pas oublier
+``` 
+php bin/console app:rls:init --env=prod
+``` 
+
+### Créer les rôles système
+``` 
+php bin/console app:roles:init --env=prod
+``` 
+
 ### Gerer le cache
 ```bash
  
@@ -86,6 +101,8 @@ php bin/console cache:clear --env=prod --no-debug
 php bin/console cache:warmup --env=prod
 
 ``` 
+
+
 
 ### LA DERNIERE CHOSE A FAIRE EST DE CREER UN FICHIER ".htaccess" A LA RACINE DU PROJET POUR PERMETTRE DE REDIRIGER VERS LE REPERTOIRE "public/" AINSI LE SERVEUR POURRA LIRE LE FICHIER "index.php"
 ```contenu fichier 
