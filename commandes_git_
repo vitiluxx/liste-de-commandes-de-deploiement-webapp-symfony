@@ -1,0 +1,25 @@
+## git pull origin main 	// Récupère la dernière version à jour du projet depuis GitHub.
+## git add . 	// preparer l'ensemble des fichiers modifiés a prendre en compte pour etre pret pour un commit le point "." permet de tout prendre en compte sur l'emplacement courant
+## gti restore --staged 	// remettre les fichiers dans l'etat precedent avant l'action git add 
+## git commit -m "ton_commentaire" 	// Enregistre les changements effetuer localement avec commentaires explicatif des ces changements pour les mettre en etat d'attente d'etre push vers le serveur centrale
+## git push origin nom_de_branch 	// emvoyer les chamgements preparer via "git commit" vers le serveur distant github
+18
+## gti log 	// lister l'historique des commits
+
+## git status 	// voir la status des changements sur le projet (l'etat du projet)
+
+## git branch 	// lister les branchs disponible sur le depot
+
+## git checkout -b nom_de_la_branch_a_creer 	// permet de creer une branch 
+
+## git checkout nom_de_branch 	// naviguer ou se deplacer s'une branch a une autre 
+
+## git merge branch_a_importer_ses_changement_sur_la_branch_courante	// merger une branch sur une autre est le fait de fusionner les changements de ces differentes branch en une seul version complet sur une branch(eg : main) ou aussi le fait de remaner les changements d'une branch vers une autre(eg : branch develop vers branch main)
+
+
+## git push origin feature/ma-fonctionnalite 	// Envoie votre branche secondaire sur GitHub.
+## gh pr create --title "Mon titre" --body "Ma description" 	// Ouvre la Pull Request directement depuis le terminal. Si vous avez configuré un modèle (template) sur GitHub, il s'appliquera automatiquement ici.
+## gh pr status 	// Affiche l'état de vos Pull Requests actuelles.
+## gh pr checks 	// Vérifie si les tests de l'Intégration Continue (CI) ont réussi ou échoué (les voyants verts ou rouges de GitHub Actions).
+## gh pr view 		// Permet de lire les commentaires et les avis de vos collègues sur votre PR.
+## gh pr merge 		// Fusionne votre Pull Request dans la branche principale depuis le terminal.
