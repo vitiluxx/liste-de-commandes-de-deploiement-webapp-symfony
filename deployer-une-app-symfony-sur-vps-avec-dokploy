@@ -1,0 +1,34 @@
+179.236.225.193
+- Ouvrir le terminal web fourni par hostinger pour votre vps
+ --// executer la commande 	
+	sudo apt update && apt-upgrade -y
+- Si et seulement si Dokploy n'est pas installer : Se rendre sur "Systeme d'exploitation --> Control panel" puis selectionner Dokploy
+ puis cliquer sur "Gerer le paneau" de Dokploy qui sera disponible a l'accueil du vps
+ configurer les infos personnel sur dokploy
+
+ETAPE 2 : SECURISER LE PANEAU D'ADMIN DE DOKPLOY VIA UNE URL https et non http EN CONNECTANT LE PANEAU A NOTRE PROPOR DOMAIN ET EN INSTALLANT UN CERTIFICAT DE SECU
+ -->paramettre --> serveur web
+ --> si ce n'est pas fait reclamer||acheter & configurer un nom de domaine puis verifier votre email configurer
+ --> sur votre nom de domaine cliquer sur [Gerer]
+-	--> ouvrir les paramettre DNS 
+		--> defiler vers le bas puis supprimer les enregistrement "CNAME" et "A" pour les re-configurer
+		--> les enregistrements a configurer 	{Type: "A"; Name: "@"; Valeur : "Addresse_IP_de_votre_domaine"; TTL : "300"}; 	{Type: "A"; Name: "www"; Valeur : "Addresse_IP_de_votre_domaine"; TTL : "300"}; 	{Type: "A"; Name: "admin"; Valeur : "Addresse_IP_de_votre_domaine"; TTL : "300"}	{Type: "A"; Name: "analytics"; Valeur : "Addresse_IP_de_votre_domaine"; TTL : "300"
+		--> repartir sur les paramettres menu "web serveur" de dokploy, puis configurer : Domain : preceder votre nom de domaine par le terme admin "admin.nom_de_domaine"; Let's encrypt email : "votre_mail"; HTTPS : -> Let's Encrypt   
+
+	--> aller sur le nom de domaine configurer avec le prefixe "admin." puis connectez-vous avec vos IDS dokploy
+	--> aller sur --> [Projets] --> {Creer projet} --> 
+ 	
+
+Régler Dokploy (avant de redéployer)
+
+Dans l'interface, sur l'application sgu-cifi :
+
+- Domains → le port : mettre 8080 (pas 80).
+- Advanced → Volumes / Mounts → ajouter 4 montages, type Volume Mount :
+Nom du volume : sgu-uploads   │ Mount Path : /var/www/html/public/uploads
+Nom du volume : sgu-photos    │ Mount Path :  /var/www/html/var/photos
+Nom du volume : sgu-documents │ Mount Path : /var/www/html/var/documents
+Nom du volume : sgu-share     │ Mount Path : /var/www/html/var/share
+
+
+
